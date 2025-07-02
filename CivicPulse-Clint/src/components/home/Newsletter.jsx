@@ -3,29 +3,37 @@ import React from "react";
 
 const Newsletter = () => {
   const { isDark } = useTheme();
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
   return (
-    <div className={`py-16 ${isDark ? "bg-gray-900" : "bg-white"} transition-colors duration-300`}>
+    <div
+      className={`py-16 ${
+        isDark ? "bg-gray-900" : "bg-white"
+      } transition-colors duration-300`}
+    >
       <div className="container mx-auto px-4">
-        <div className={`max-w-4xl mx-auto ${
-          isDark ? "bg-gray-800" : "bg-white"
-        } rounded-2xl shadow-xl ${
-          isDark ? "shadow-emerald-900/10" : "shadow-emerald-100"
-        } overflow-hidden`}>
+        <div
+          className={`max-w-4xl mx-auto ${
+            isDark ? "bg-gray-800" : "bg-white"
+          } rounded-2xl shadow-xl ${
+            isDark ? "shadow-emerald-900/10" : "shadow-emerald-100"
+          } overflow-hidden`}
+        >
           <div className="flex flex-col md:flex-row">
             {/* Left Section with Image */}
             <div className="md:w-1/2 relative min-h-[400px]">
               <div className="absolute inset-0 bg-emerald-600">
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557568192-2fafc8b5bdc9?q=80&w=1470&auto=format&fit=crop')] opacity-50 mix-blend-multiply"></div>
-                <div className={`absolute inset-0 bg-gradient-to-br ${
-                  isDark 
-                    ? "from-emerald-700/90 to-emerald-900/90" 
-                    : "from-emerald-600/90 to-emerald-800/90"
-                }`}></div>
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${
+                    isDark
+                      ? "from-emerald-700/90 to-emerald-900/90"
+                      : "from-emerald-600/90 to-emerald-800/90"
+                  }`}
+                ></div>
                 <div className="relative h-full flex items-center justify-center p-8">
                   <div className="text-center text-white">
                     <div className="w-16 h-16 mx-auto mb-4">
@@ -54,12 +62,18 @@ const Newsletter = () => {
             </div>
 
             {/* Right Section with Form */}
-            <div className={`md:w-1/2 p-8 md:p-12 ${isDark ? "bg-gray-800" : "bg-white"}`}>
+            <div
+              className={`md:w-1/2 p-8 md:p-12 ${
+                isDark ? "bg-gray-800" : "bg-white"
+              }`}
+            >
               <div className="space-y-6">
                 <div>
-                  <h2 className={`text-3xl font-bold ${
-                    isDark ? "text-white" : "text-gray-800"
-                  } mb-2`}>
+                  <h2
+                    className={`text-3xl font-bold ${
+                      isDark ? "text-white" : "text-gray-800"
+                    } mb-2`}
+                  >
                     Newsletter Signup
                   </h2>
                   <p className={isDark ? "text-gray-300" : "text-gray-600"}>
@@ -68,8 +82,8 @@ const Newsletter = () => {
                 </div>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label 
-                      htmlFor="name" 
+                    <label
+                      htmlFor="name"
                       className={`block text-sm font-medium ${
                         isDark ? "text-gray-200" : "text-gray-700"
                       } mb-1`}
@@ -80,16 +94,16 @@ const Newsletter = () => {
                       type="text"
                       id="name"
                       className={`w-full px-4 py-2 rounded-lg border ${
-                        isDark 
-                          ? "bg-gray-700 border-gray-600 text-white focus:ring-emerald-400" 
+                        isDark
+                          ? "bg-gray-700 border-gray-600 text-white focus:ring-emerald-400"
                           : "bg-white border-gray-300 text-gray-900 focus:ring-emerald-500"
                       } focus:ring-2 focus:border-transparent transition-colors duration-200`}
                       placeholder="Enter your name"
                     />
                   </div>
                   <div>
-                    <label 
-                      htmlFor="email" 
+                    <label
+                      htmlFor="email"
                       className={`block text-sm font-medium ${
                         isDark ? "text-gray-200" : "text-gray-700"
                       } mb-1`}
@@ -100,8 +114,8 @@ const Newsletter = () => {
                       type="email"
                       id="email"
                       className={`w-full px-4 py-2 rounded-lg border ${
-                        isDark 
-                          ? "bg-gray-700 border-gray-600 text-white focus:ring-emerald-400" 
+                        isDark
+                          ? "bg-gray-700 border-gray-600 text-white focus:ring-emerald-400"
                           : "bg-white border-gray-300 text-gray-900 focus:ring-emerald-500"
                       } focus:ring-2 focus:border-transparent transition-colors duration-200`}
                       placeholder="Enter your email"
@@ -110,8 +124,8 @@ const Newsletter = () => {
                   <button
                     type="submit"
                     className={`w-full ${
-                      isDark 
-                        ? "bg-emerald-500 hover:bg-emerald-600" 
+                      isDark
+                        ? "bg-emerald-500 hover:bg-emerald-600"
                         : "bg-emerald-600 hover:bg-emerald-700"
                     } text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200`}
                   >

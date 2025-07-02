@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, NavLink } from "react-router";
 import UseAuth from "../../../hooks/useAuth";
 import { useTheme } from "../../../contexts/useTheme";
@@ -138,32 +137,33 @@ const Navbar = () => {
   return (
     <div className="sticky top-0 z-50">
       <div
-        className={`navbar shadow-sm transition-colors duration-200 ${
+        className={`navbar shadow-sm transition-colors duration-200  px-3 md:px-10 ${
           isDark ? "bg-gray-800 " : "bg-white"
         }`}
       >
-        <div className="navbar-start  lg:pl-4">
+        <div className="navbar-start ">
           <div className="dropdown">
             <div
               tabIndex={0}
               role="button"
-              className={`btn btn-ghost lg:hidden ${
+              className={`btn btn-ghost lg:hidden p-0 m-0 ${
                 isDark ? "hover:bg-gray-700" : "hover:bg-emerald-50"
               }`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className={`h-5 w-5 ${
+                className={`h-5 w-5 p-0 m-0 ${
                   isDark ? "text-emerald-400" : "text-emerald-600"
                 }`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
+                style={{ padding: 0, margin: 0 }}
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth="2"
+                  strokeWidth="3"
                   d="M4 6h16M4 12h8m-8 6h16"
                 />
               </svg>
@@ -179,18 +179,17 @@ const Navbar = () => {
           </div>
           <Link
             to="/"
-            className={`px-2 sm:px-4 py-2 rounded-md font-bold text-lg sm:text-xl block hover:bg-emerald-50 ${
+            className={`px-1 py-2 rounded-md font-bold text-lg sm:text-xl block hover:bg-emerald-50 ${
               isDark ? "text-emerald-400" : "text-emerald-600"
             }`}
           >
             <span className="hidden sm:inline">Civic Pulse</span>
-            <span className="sm:hidden">CP</span>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
-        <div className="navbar-end pr-2 sm:pr-4 md:pr-6 lg:pr-10">
+        <div className="navbar-end">
           <button
             onClick={toggleTheme}
             className={`btn btn-ghost btn-circle text-lg sm:text-xl mr-1 sm:mr-2 ${

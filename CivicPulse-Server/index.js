@@ -68,6 +68,12 @@ async function run() {
       res.status(200).send(result);
     });
 
+    // features Events
+    app.get("/features", async (req, res) => {
+      const result = await eventCollections.find().limit(8).toArray();
+      res.status(200).send(result);
+    });
+
     // specific events
     app.get("/details/:id", async (req, res) => {
       const id = req.params.id;

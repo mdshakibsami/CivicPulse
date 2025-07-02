@@ -22,32 +22,6 @@ const UpcomingEvents = () => {
     "Others",
   ];
 
-  // const handleSearch = () => {
-  //   let filteredEvents = data.events;
-
-  //   if (searchTerm) {
-  //     filteredEvents = filteredEvents.filter(
-  //       (event) =>
-  //         event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //         event.location.toLowerCase().includes(searchTerm.toLowerCase())
-  //     );
-  //   }
-
-  //   if (selectedType) {
-  //     filteredEvents = filteredEvents.filter(
-  //       (event) => event.eventType === selectedType
-  //     );
-  //   }
-  //   setEvents(filteredEvents);
-  // };
-
-  // const handleReset = () => {
-  //   setSearchTerm("");
-  //   setSelectedType("");
-  //   setEvents(data.events);
-  // };
-
-  // ...inside your component:
   const handleSearch = async () => {
     try {
       const query = new URLSearchParams();
@@ -72,7 +46,9 @@ const UpcomingEvents = () => {
     setSearchTerm("");
     setSelectedType("");
     try {
-      const res = await axios.get("https://civic-pulse-server.vercel.app/upcoming");
+      const res = await axios.get(
+        "https://civic-pulse-server.vercel.app/upcoming"
+      );
       if (res.data.success) {
         setEvents(res.data.events);
       }
