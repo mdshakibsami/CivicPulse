@@ -22,26 +22,6 @@ const UpcomingEvents = () => {
     "Others",
   ];
 
-  const handleSearch = async () => {
-    try {
-      const query = new URLSearchParams();
-      if (searchTerm) query.append("search", searchTerm);
-      if (selectedType) query.append("type", selectedType);
-
-      const res = await axios.get(
-        `https://civic-pulse-server.vercel.app/upcoming?${query.toString()}`
-      );
-      if (res.data.success) {
-        setEvents(res.data.events);
-      } else {
-        console.error("Error in API response:", res.data.message);
-      }
-    } catch (error) {
-      console.error("Error fetching filtered events:", error);
-      setEvents([]); // Clear events on error
-    }
-  };
-
   const resetFilters = async () => {
     setSearchTerm("");
     setSelectedType("");
@@ -58,20 +38,47 @@ const UpcomingEvents = () => {
   };
 
   // Event handlers for real-time search
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-    if (!e.target.value && !selectedType) {
-      resetFilters();
+  const handleSearchChange = async (e) => {
+    const newSearchTerm = e.target.value;
+    setSearchTerm(newSearchTerm);
+
+    // Apply search filter individually
+    try {
+      const query = new URLSearchParams();
+      if (newSearchTerm.trim()) query.append("search", newSearchTerm);
+      if (selectedType) query.append("type", selectedType);
+
+      const res = await axios.get(
+        `https://civic-pulse-server.vercel.app/upcoming?${query.toString()}`
+      );
+      if (res.data.success) {
+        setEvents(res.data.events);
+      }
+    } catch (error) {
+      console.error("Error fetching events:", error);
+      setEvents([]);
     }
   };
 
-  const handleTypeChange = (e) => {
-    setSelectedType(e.target.value);
+  const handleTypeChange = async (e) => {
     const newType = e.target.value;
-    if (!newType && !searchTerm) {
-      resetFilters();
-    } else {
-      setTimeout(handleSearch, 0);
+    setSelectedType(newType);
+
+    // Apply type filter individually
+    try {
+      const query = new URLSearchParams();
+      if (searchTerm.trim()) query.append("search", searchTerm);
+      if (newType) query.append("type", newType);
+
+      const res = await axios.get(
+        `https://civic-pulse-server.vercel.app/upcoming?${query.toString()}`
+      );
+      if (res.data.success) {
+        setEvents(res.data.events);
+      }
+    } catch (error) {
+      console.error("Error fetching events:", error);
+      setEvents([]);
     }
   };
 
@@ -118,13 +125,9 @@ const UpcomingEvents = () => {
                         : "bg-white border-gray-300 text-gray-900 placeholder-gray-500"
                     } focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-200`}
                   />
-                  <button
-                    onClick={handleSearch}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-1.5 bg-emerald-600 text-white rounded-md hover:bg-emerald-700 transition-colors duration-200 flex items-center"
-                  >
-                    <FaSearch className="mr-2" />
-                    Search
-                  </button>
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
+                    <FaSearch />
+                  </div>
                 </div>
               </div>
             </div>
@@ -176,10 +179,10 @@ const UpcomingEvents = () => {
           </div>
 
           {/* Reset Button */}
-          {/* {(searchTerm || selectedType) && (
+          {(searchTerm || selectedType) && (
             <div className="mt-4 text-center">
               <button
-                // onClick={handleReset}
+                onClick={resetFilters}
                 className={`inline-flex items-center px-4 py-2 rounded-md text-sm transition-colors duration-200 ${
                   isDark
                     ? "bg-gray-700 text-gray-300 hover:bg-gray-600"
@@ -189,11 +192,11 @@ const UpcomingEvents = () => {
                 Clear Filters
               </button>
             </div>
-          )} */}
+          )}
         </div>
 
         {/* Events Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 mt-15 lg:grid-cols-4 gap-6">
           {events.length > 0 ? (
             events.map((event) => <EventCard key={event._id} event={event} />)
           ) : (

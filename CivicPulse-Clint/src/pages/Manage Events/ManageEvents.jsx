@@ -1,4 +1,4 @@
-import React, { Suspense, useContext } from "react";
+import React, { Suspense, useContext, useMemo } from "react";
 import ManageEventsList from "./ManageEventsList";
 import UseAuth from "../../hooks/useAuth";
 import { ThemeContext } from "../../contexts/theme";
@@ -7,6 +7,11 @@ import { manageEventsPromise } from "../../api/manageEventsapi";
 const ManageEvents = () => {
   const { user } = UseAuth();
   const { isDark } = useContext(ThemeContext);
+
+  // Memoize the promise to prevent refetching on theme changes
+  const memoizedManageEventsPromise = useMemo(() => {
+    return manageEventsPromise(user.email, user.accessToken);
+  }, [user.email, user.accessToken]);
 
   return (
     <div className={`${isDark ? "bg-gray-900" : "bg-gray-50"}`}>
@@ -21,12 +26,7 @@ const ManageEvents = () => {
           </div>
         }
       >
-        <ManageEventsList
-          manageEventsPromise={manageEventsPromise(
-            user.email,
-            user.accessToken
-          )}
-        />
+        <ManageEventsList manageEventsPromise={memoizedManageEventsPromise} />
       </Suspense>
     </div>
   );

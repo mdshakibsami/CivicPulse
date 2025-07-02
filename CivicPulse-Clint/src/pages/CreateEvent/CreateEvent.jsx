@@ -321,10 +321,10 @@ const CreateEvent = () => {
                 />
               </div>
             </fieldset>
-            <div className="flex justify-end">
+            <div>
               <button
                 type="submit"
-                className="bg-emerald-600 text-white px-6 py-2 rounded-md hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 transition-colors duration-200"
+                className="w-full bg-emerald-600 text-white px-6 py-2 rounded-md hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 transition-colors duration-200"
               >
                 Create Event
               </button>
