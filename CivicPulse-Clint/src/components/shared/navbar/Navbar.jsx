@@ -80,6 +80,34 @@ const Navbar = () => {
           Upcoming Events
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive
+              ? "text-emerald-500 font-medium"
+              : `${
+                  isDark ? "text-gray-300" : "text-gray-700"
+                } hover:text-emerald-500`
+          }
+        >
+          About
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            isActive
+              ? "text-emerald-500 font-medium"
+              : `${
+                  isDark ? "text-gray-300" : "text-gray-700"
+                } hover:text-emerald-500`
+          }
+        >
+          Contact Us
+        </NavLink>
+      </li>
 
       {user && (
         <>
@@ -135,9 +163,9 @@ const Navbar = () => {
   if (loading) return <p></p>;
 
   return (
-    <div className="sticky top-0 z-50">
+    <div className="sticky top-0 z-50 ">
       <div
-        className={`navbar shadow-sm transition-colors duration-200  px-3 md:px-10 ${
+        className={`navbar shadow-sm transition-colors duration-200  px-3 md:px-7 ${
           isDark ? "bg-gray-800 " : "bg-white"
         }`}
       >

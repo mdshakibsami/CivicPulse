@@ -12,7 +12,7 @@ const Banner = () => {
 
   return (
     <div
-      className={`relative lg:h-[450px] px-3 md:px-10 ${
+      className={`relative lg:h-[450px] px-3 md:px-8 md:pr-11 ${
         isDark
           ? "bg-gradient-to-br from-gray-900 to-gray-800"
           : "bg-gradient-to-br from-emerald-50 to-white"

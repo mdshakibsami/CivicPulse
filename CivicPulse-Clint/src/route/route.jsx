@@ -9,6 +9,8 @@ import CreateEvent from "../pages/CreateEvent/CreateEvent";
 import EventDetails from "../pages/EventDetails/EventDetails";
 import JoinEvents from "../pages/JoinEvent/JoinEvents";
 import ManageEvents from "../pages/Manage Events/ManageEvents";
+import About from "../pages/About/About";
+import Contact from "../pages/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +20,14 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+      },
+      {
+        path: "about",
+        Component: About,
+      },
+      {
+        path: "contact",
+        Component: Contact,
       },
       {
         path: "register",
