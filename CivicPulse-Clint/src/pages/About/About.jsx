@@ -1,53 +1,99 @@
-
-
-import React from 'react';
-import { FaRegCalendarPlus, FaSearchLocation, FaHandsHelping } from 'react-icons/fa';
-import pic2 from '../../assets/home/pic-2.jpg';
+import React from "react";
+import {
+  FaRegCalendarPlus,
+  FaSearchLocation,
+  FaHandsHelping,
+} from "react-icons/fa";
+import pic2 from "../../assets/home/pic-2.jpg";
 
 const About = () => {
-    return (
-        <div className="min-h-screen w-full flex flex-col  max-h-11/12 items-center bg-gradient-to-br from-green-100 via-blue-50 to-green-200 px-4 py-8">
-            <div className="bg-white bg-opacity-95 rounded-3xl  shadow-2xl p-10  text-center border border-green-200 relative overflow-hidden">
-                {/* Decorative background image */}
-                <img src={pic2} alt="Community" className="absolute opacity-10 w-full right-0 top-0 h-full object-cover rounded-3xl pointer-events-none select-none" style={{zIndex:0}} />
-                <div className="relative z-10">
-                    <h1 className="text-5xl font-extrabold text-green-700 mb-4 drop-shadow-lg">About CivicPulse</h1>
-                    <p className="text-xl text-gray-700 mb-8 font-medium">
-                        CivicPulse is a community event management platform dedicated to empowering individuals and groups to create, explore, and join local social service events. Whether it’s road cleaning, tree plantation drives, or other impactful activities, CivicPulse connects people who want to make a difference in their neighborhoods.
-                    </p>
-                    <div className="flex flex-col md:flex-row justify-center gap-8 mb-8">
-                        {/* Step 1 */}
-                        <div className="flex items-center gap-4 bg-green-50 rounded-xl p-4 shadow-md w-full md:w-1/3">
-                            <span className="h-12 w-12 flex items-center justify-center text-3xl text-green-600 bg-white rounded-full shadow"><FaRegCalendarPlus /></span>
-                            <div className="text-left">
-                                <div className="font-bold text-green-700 text-lg">Create Events</div>
-                                <div className="text-gray-600 text-sm">Organize your own social service events and invite others to join your cause.</div>
-                            </div>
-                        </div>
-                        {/* Step 2 */}
-                        <div className="flex items-center gap-4 bg-blue-50 rounded-xl p-4 shadow-md w-full md:w-1/3">
-                            <span className="h-12 w-12 flex items-center justify-center text-3xl text-blue-600 bg-white rounded-full shadow"><FaSearchLocation /></span>
-                            <div className="text-left">
-                                <div className="font-bold text-blue-700 text-lg">Explore Opportunities</div>
-                                <div className="text-gray-600 text-sm">Discover a variety of local events focused on making your community cleaner, greener, and better.</div>
-                            </div>
-                        </div>
-                        {/* Step 3 */}
-                        <div className="flex items-center gap-4 bg-green-100 rounded-xl p-4 shadow-md w-full md:w-1/3">
-                            <span className="h-12 w-12 flex items-center justify-center text-3xl text-green-800 bg-white rounded-full shadow"><FaHandsHelping /></span>
-                            <div className="text-left">
-                                <div className="font-bold text-green-800 text-lg">Join & Collaborate</div>
-                                <div className="text-gray-600 text-sm">Sign up for events, connect with like-minded individuals, and contribute to meaningful change.</div>
-                            </div>
-                        </div>
-                    </div>
-                    <p className="mt-8 text-gray-500 text-base italic">
-                        Together, we can build stronger, more vibrant communities—one event at a time.
-                    </p>
-                </div>
-            </div>
+  return (
+    <div className="px-8 mx-auto py-12">
+      {/* Section 1: Our Mission */}
+      <section className="mb-12 flex flex-col md:flex-row items-center gap-8">
+        <img
+          src={pic2}
+          alt="CivicPulse community"
+          className="w-full md:w-1/2 rounded-lg shadow-lg object-cover h-64"
+        />
+        <div className="md:w-1/2">
+          <h2 className="text-3xl font-bold mb-4 text-black">Our Mission</h2>
+          <p className="text-lg text-gray-700">
+            CivicPulse empowers communities by making it easy to create,
+            discover, and join local events. Our mission is to foster civic
+            engagement and bring people together for positive change.
+          </p>
         </div>
-    );
+      </section>
+
+      {/* Section 2: How It Works */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-6 text-black text-center">
+          How It Works
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Card 1 */}
+          <div className="flex flex-col items-center text-center bg-white rounded-2xl p-8 shadow-xl border-4 border-transparent hover:border-gradient-to-br hover:from-emerald-400 hover:to-green-400 transition-all duration-300 group relative overflow-hidden">
+            <span className="absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-100 to-green-100 opacity-0 group-hover:opacity-100 transition-all duration-300 z-0"></span>
+            <span className="relative z-10 flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-gradient-to-br from-emerald-400 to-green-400 shadow-lg">
+              <FaRegCalendarPlus className="text-4xl text-white" />
+            </span>
+            <h3 className="font-bold mb-2 text-black text-lg relative z-10">
+              Create Events
+            </h3>
+            <p className="text-gray-600 relative z-10">
+              Organize events for your community and manage them easily through
+              our platform.
+            </p>
+          </div>
+          {/* Card 2 */}
+          <div className="flex flex-col items-center text-center bg-white rounded-2xl p-8 shadow-xl border-4 border-transparent hover:border-gradient-to-br hover:from-purple-400 hover:to-blue-400 transition-all duration-300 group relative overflow-hidden">
+            <span className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-100 to-blue-100 opacity-0 group-hover:opacity-100 transition-all duration-300 z-0"></span>
+            <span className="relative z-10 flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-gradient-to-br from-purple-400 to-blue-400 shadow-lg">
+              <FaSearchLocation className="text-4xl text-white" />
+            </span>
+            <h3 className="font-bold mb-2 text-black text-lg relative z-10">
+              Discover Nearby
+            </h3>
+            <p className="text-gray-600 relative z-10">
+              Find events happening near you and connect with like-minded
+              individuals.
+            </p>
+          </div>
+          {/* Card 3 */}
+          <div className="flex flex-col items-center text-center bg-white rounded-2xl p-8 shadow-xl border-4 border-transparent hover:border-gradient-to-br hover:from-yellow-400 hover:to-orange-400 transition-all duration-300 group relative overflow-hidden">
+            <span className="absolute inset-0 rounded-2xl bg-gradient-to-br from-yellow-100 to-orange-100 opacity-0 group-hover:opacity-100 transition-all duration-300 z-0"></span>
+            <span className="relative z-10 flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-gradient-to-br from-yellow-400 to-orange-400 shadow-lg">
+              <FaHandsHelping className="text-4xl text-white" />
+            </span>
+            <h3 className="font-bold mb-2 text-black text-lg relative z-10">
+              Join & Contribute
+            </h3>
+            <p className="text-gray-600 relative z-10">
+              Participate in events, volunteer, and make a difference in your
+              community.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Get Involved */}
+      <section className="bg-blue-50 rounded-lg p-8 text-center">
+        <h2 className="text-2xl font-semibold mb-4 text-black">Get Involved</h2>
+        <p className="text-lg text-gray-700 mb-6">
+          Ready to make an impact? Sign up, create your first event, or join an
+          existing one. CivicPulse is your gateway to a more connected and
+          active community.
+        </p>
+        <a
+          href="/upcoming-events"
+          className=" btn  text-sm sm:text-base px-2 sm:px-4 bg-emerald-600 text-white rounded hover:bg-emerald-700 transition"
+        >
+          Get Started
+        </a>
+      </section>
+    </div>
+  );
 };
 
 export default About;
