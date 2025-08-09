@@ -9,8 +9,10 @@ import CreateEvent from "../pages/CreateEvent/CreateEvent";
 import EventDetails from "../pages/EventDetails/EventDetails";
 import JoinEvents from "../pages/JoinEvent/JoinEvents";
 import ManageEvents from "../pages/Manage Events/ManageEvents";
+
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
+import NotFound from "../pages/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -71,6 +73,11 @@ export const router = createBrowserRouter([
             <ManageEvents></ManageEvents>
           </PrivateRoute>
         ),
+      },
+      // ...existing code...
+      {
+        path: "*",
+        Component: NotFound,
       },
     ],
   },
