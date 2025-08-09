@@ -15,9 +15,9 @@ const Footer = () => {
       } transition-colors duration-300`}
     >
       <div className="py-8">
-        <div className="flex flex-col md:flex-row  justify-between">
+        <div className="flex flex-col md:flex-row justify-between text-center md:text-left items-center md:items-start gap-8">
           {/* Logo and Description */}
-          <div className="space-y-4 text-justify mt-5">
+          <div className="space-y-4 mt-5 w-full md:w-auto">
             <Link
               to="/"
               className={`text-xl sm:text-2xl font-bold ${
@@ -29,7 +29,7 @@ const Footer = () => {
             <p
               className={`text-sm sm:text-base ${
                 isDark ? "text-gray-300" : "text-gray-600"
-              } max-w-lg leading-relaxed`}
+              } max-w-lg leading-relaxed mx-auto md:mx-0`}
             >
               Empowering communities through events and engagement. Join us in
               making a difference.
@@ -41,7 +41,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="mt-5">
+          <div className="mt-5 w-full md:w-auto">
             <h3
               className={`font-semibold mb-4 text-base sm:text-lg ${
                 isDark ? "text-white" : "text-gray-800"
@@ -49,7 +49,7 @@ const Footer = () => {
             >
               Quick Links
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 flex flex-col items-center md:items-start">
               <li>
                 <Link
                   to="/"
@@ -97,7 +97,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="mt-5">
+          <div className="mt-5 w-full md:w-auto">
             <h3
               className={`font-semibold mb-4 text-base sm:text-lg ${
                 isDark ? "text-white" : "text-gray-800"
@@ -105,7 +105,7 @@ const Footer = () => {
             >
               Contact Us
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 flex flex-col items-center md:items-start">
               <li className="flex items-center space-x-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

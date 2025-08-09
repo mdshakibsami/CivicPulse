@@ -80,34 +80,6 @@ const Navbar = () => {
           Upcoming Events
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/about"
-          className={({ isActive }) =>
-            isActive
-              ? "text-emerald-500 font-medium"
-              : `${
-                  isDark ? "text-gray-300" : "text-gray-700"
-                } hover:text-emerald-500`
-          }
-        >
-          About
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/contact"
-          className={({ isActive }) =>
-            isActive
-              ? "text-emerald-500 font-medium"
-              : `${
-                  isDark ? "text-gray-300" : "text-gray-700"
-                } hover:text-emerald-500`
-          }
-        >
-          Contact Us
-        </NavLink>
-      </li>
 
       {user && (
         <>
@@ -157,6 +129,35 @@ const Navbar = () => {
           </li>
         </>
       )}
+
+      <li>
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive
+              ? "text-emerald-500 font-medium"
+              : `${
+                  isDark ? "text-gray-300" : "text-gray-700"
+                } hover:text-emerald-500`
+          }
+        >
+          About
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            isActive
+              ? "text-emerald-500 font-medium"
+              : `${
+                  isDark ? "text-gray-300" : "text-gray-700"
+                } hover:text-emerald-500`
+          }
+        >
+          Contact Us
+        </NavLink>
+      </li>
     </>
   );
 
